@@ -1,0 +1,12 @@
+<span ng-if="isRevealed">
+  <img ng-src="{{images[type.type]}}" />
+</span>
+
+<span ng-if="!isRevealed && !isFlagged">
+  <img ng-src="{{images['covered']}}" />
+</span>
+
+<span ng-if="!isRevealed && isFlagged">
+  <img ng-src="{{images['flagged']}}" />
+</span>
+

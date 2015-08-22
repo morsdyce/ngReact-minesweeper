@@ -1,0 +1,15 @@
+<header>
+  <timer time="Board.game.getTime"></timer>
+  <bombs amount="Board.remainingBombs()"></bombs>
+</header>
+
+<table class="minefield">
+  <tr ng-repeat="row in Board.game.minefield.rows">
+    <td ng-repeat="spot in row.spots track by $index"
+        ng-click="Board.revealSpot(spot)"
+        ms-right-click="Board.flagSpot(spot)">
+
+      <spot images="spot.images" type="spot.content" is-revealed="spot.isRevealed" is-flagged="spot.isFlagged"></spot>
+    </td>
+  </tr>
+</table>
