@@ -1,7 +1,7 @@
 {
   "name": "ng-react-angular",
   "version": "1.0.0",
-  "description": "starter project with webpack, angular, es6 and bootstrap",
+  "description": "Code for Introduction to react for angular devs",
   "main": "src/app.js",
   "scripts": {
     "prestart": "npm install",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nirkaufman/angular-webpack-starter.git"
+    "url": "https://github.com/morsdyce/ngReact-minsweeper"
   },
   "keywords": [
     "angularjs",
@@ -20,12 +20,9 @@
     "bootstrap",
     "less"
   ],
-  "author": "Nir Kaufman <nirkaufman@gmail.com>",
+  "author": "Maayan Glikser <maayan@glikm.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nirkaufman/angular-webpack-starter/issues"
-  },
-  "homepage": "https://github.com/nirkaufman/angular-webpack-starter",
+  "homepage": "https://github.com/morsdyce/ngReact-minsweeper",
   "devDependencies": {
     "babel-core": "5.6.4",
     "babel-loader": "5.1.4",
