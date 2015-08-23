@@ -4,17 +4,8 @@ export default function Bombs() {
   return {
     restrict: 'E',
     template,
-    scope: true,
-    controller: BombsController,
-    controllerAs: 'Bombs',
-    bindToController: {
+    scope: {
       amount: '='
     }
   };
-}
-
-class BombsController {
-  constructor() {
-    console.log(this);
-  }
 }

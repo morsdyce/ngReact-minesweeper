@@ -40,14 +40,11 @@ export default class Spot {
     }
 
     if (this.content === Spot.TYPES.MINE) {
-      alert('you lose');
-    } else if (this.game.hasWon()) {
-      alert('YOU WIN!');
+      this.game.isBlown = true;
     }
   }
 
   flagSpot() {
-    console.log('flagged the spot');
     this.isFlagged = true;
   }
 
@@ -138,6 +135,5 @@ export default class Spot {
 
     return null;
   }
-
 
 };

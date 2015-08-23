@@ -6,6 +6,7 @@ import _ from 'lodash';
 export default class MineSweeper {
   constructor(size = 9) {
     this.size      = size;
+    this.isBlown   = false;
     this.minefield = {
       rows: []
     };
@@ -109,6 +110,10 @@ export default class MineSweeper {
       .length;
 
     return remainingSpots === 0;
+  }
+
+  hasLost() {
+    return this.isBlown;
   }
 
   remainingBombs() {

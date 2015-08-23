@@ -12,12 +12,23 @@ export default function Board() {
 }
 
 class BoardController {
-  constructor() {
+  constructor($scope) {
+    this.$scope = $scope;
     this.game = new MineSweeper();
   }
 
   revealSpot(spot) {
     spot.revealSpot();
+
+    if (this.game.hasWon() || this.game.hasLost()) {
+      this.$scope.$broadcast('game-over');
+    }
+
+    if (this.game.hasWon()) {
+      alert('You Win!');
+    } else if (this.game.hasLost()) {
+      alert('You lose!');
+    }
   }
 
   flagSpot(spot) {
@@ -26,5 +37,11 @@ class BoardController {
 
   remainingBombs() {
     return this.game.remainingBombs();
+  }
+
+  newGame() {
+    console.log('starting new game');
+    this.game = new MineSweeper();
+    this.$scope.$broadcast('reset-timer');
   }
 }
