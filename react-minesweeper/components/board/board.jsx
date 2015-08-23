@@ -37,7 +37,7 @@ export default React.createClass({
         alert('You Lost!');
       }
     } else {
-      _.each(this.refs, (ref) => ref.update(type) );
+      _.each(this.refs, (ref) => ref.update(type));
     }
   },
 
@@ -66,9 +66,12 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <Timer />
-        <NewGameButton newGameFn={ GameActions.startNewGame }/>
-        <BombsCount />
+        <header>
+          <Timer />
+          <NewGameButton newGameFn={ GameActions.startNewGame }/>
+          <BombsCount />
+        </header>
+
         <table className="minefield">
           { this.renderRows() }
         </table>
