@@ -20,7 +20,11 @@ class BoardController {
   }
 
   revealSpot(spot) {
-    spot.revealSpot();
+    let adjucentSpots = spot.revealSpot();
+
+    if (adjucentSpots) {
+      adjucentSpots.forEach( (adjucentSpot) => adjucentSpot.revealSpot() );
+    }
 
     if (this.game.hasWon() || this.game.hasLost()) {
       this.$scope.$broadcast('game-over');

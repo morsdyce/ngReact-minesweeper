@@ -36,8 +36,8 @@ export default class MineSweeper {
   }
 
   _placeRandomMine() {
-    let row    = Math.round(Math.random() * 8);
-    let column = Math.round(Math.random() * 8);
+    let row    = Math.round(Math.random() * (this.size - 1) );
+    let column = Math.round(Math.random() * (this.size - 1) );
 
     let spot     = this._getSpot(row, column);
     spot.content = Spot.TYPES.MINE;
@@ -50,7 +50,7 @@ export default class MineSweeper {
   // check cells in all directions
   // if a cell is a number or empty reveal the cell
   checkSpots(spot) {
-    [
+    return [
       spot.getAbove(),
       spot.getAboveRight(),
       spot.getAboveLeft(),
@@ -63,8 +63,7 @@ export default class MineSweeper {
       .map(({ row, column }) => this._getSpot(row, column))
       .filter((checkingSpot) => !checkingSpot.isRevealed)
       .filter((checkingSpot) => !checkingSpot.isFlagged)
-      .filter((checkingSpot) => checkingSpot.content !== Spot.TYPES.MINE)
-      .forEach((checkingSpot) => checkingSpot.revealSpot());
+      .filter((checkingSpot) => checkingSpot.content !== Spot.TYPES.MINE);
   }
 
   _calculateNumber(row, column) {
@@ -117,12 +116,10 @@ export default class MineSweeper {
   }
 
   remainingBombs() {
-    let remainingBombs = _.flatten(this.minefield.rows.map((row) => row.spots))
+    return _.flatten(this.minefield.rows.map((row) => row.spots))
       .filter((spot) => !spot.isRevealed)
       .filter((spot) => !spot.isFlagged)
       .filter((spot) => spot.content === Spot.TYPES.MINE)
       .length;
-
-    return remainingBombs;
   }
 }

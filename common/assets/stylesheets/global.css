@@ -1,0 +1,14 @@
+.left {
+  float: left;
+  width: 50%;
+}
+
+.right {
+  float: right;
+  width: 50%;
+}
+
+body {
+  width: 1280px;
+  margin: 0 auto;
+}

@@ -36,7 +36,7 @@ export default class Spot {
     this.isRevealed = true;
 
     if (this.content === Spot.TYPES.EMPTY) {
-      this.game.checkSpots(this);
+      return this.game.checkSpots(this);
     }
 
     if (this.content === Spot.TYPES.MINE) {
