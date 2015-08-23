@@ -15,6 +15,8 @@ class BoardController {
   constructor($scope) {
     this.$scope = $scope;
     this.game = new MineSweeper();
+
+    this.newGame = this.newGame.bind(this);
   }
 
   revealSpot(spot) {
@@ -40,7 +42,6 @@ class BoardController {
   }
 
   newGame() {
-    console.log('starting new game');
     this.game = new MineSweeper();
     this.$scope.$broadcast('reset-timer');
   }

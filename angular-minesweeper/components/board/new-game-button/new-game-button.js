@@ -4,14 +4,22 @@ export default function NewGameButton() {
   return {
     restrict: 'E',
     template,
+    scope: true,
     controller: NewGameButtonController,
     controllerAs: 'NewGameButton',
-    bindToController: true
+    bindToController: {
+      newGame: '&'
+    }
   };
 }
 
 class NewGameButtonController {
   constructor() {
     this.image = require('common/assets/images/newgame.jpg');
+    this.gameFn = this.newGame();
+  }
+
+  startNewGame() {
+    this.gameFn();
   }
 }
