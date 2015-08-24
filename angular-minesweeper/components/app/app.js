@@ -3,14 +3,6 @@ import template from 'angular-minesweeper/components/app/app.html';
 export default function App() {
   return {
     restrict: 'E',
-    template,
-    controller: AppController,
-    controllerAs: 'App'
+    template
   };
-}
-
-class AppController {
-  constructor() {
-    this.view = 'upcoming';
-  }
 }

@@ -8,14 +8,15 @@ export default function NewGameButton() {
     controller: NewGameButtonController,
     controllerAs: 'NewGameButton',
     bindToController: {
-      newGame: '&'
+      newGame: '&',
+      image: '='
     }
   };
 }
 
 class NewGameButtonController {
   constructor() {
-    this.image = require('common/assets/images/newgame.jpg');
+    this.image = this.image || require('common/assets/images/newgame.jpg');
     this.gameFn = this.newGame();
   }
 

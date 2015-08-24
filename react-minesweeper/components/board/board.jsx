@@ -36,7 +36,7 @@ export default React.createClass({
       } else if (GameStore.hasLost()) {
         alert('You Lost!');
       }
-    } else {
+    } else if (type === GameConstants.NEW_GAME) {
       _.each(this.refs, (ref) => ref.update(type));
     }
   },
