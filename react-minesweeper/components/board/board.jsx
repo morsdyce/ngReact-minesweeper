@@ -17,8 +17,6 @@ export default React.createClass({
 
   renderCells(row) {
     return row.spots.map((spot) => {
-      let ref = `spot${spot.position.row}-${spot.position.column}`;
-
       return (
         <td key={spot.position.column}>
           <Spot spot={ spot }/>

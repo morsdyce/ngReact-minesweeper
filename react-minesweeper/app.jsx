@@ -22,11 +22,17 @@ export default React.createClass({
     this.setState({
       minefield: GameStore.getMinefield()
     });
+
+    if (GameStore.hasWon()) {
+      alert('You Win!');
+    } else if (GameStore.hasLost()) {
+      alert('You Lost!');
+    }
   },
 
-  render: function() {
+  render() {
     return (
-      <Board minefield={ this.state.minefield } />
+      <Board minefield={ this.state.minefield }/>
     );
   }
 
