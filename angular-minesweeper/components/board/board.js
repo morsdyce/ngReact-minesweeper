@@ -5,9 +5,12 @@ export default function Board() {
   return {
     restrict: 'E',
     template,
+    scope: true,
     controller: BoardController,
     controllerAs: 'Board',
-    bindToController: true
+    bindToController: {
+      minefield: '='
+    }
   };
 }
 
@@ -20,11 +23,7 @@ class BoardController {
   }
 
   revealSpot(spot) {
-    let adjucentSpots = spot.revealSpot();
-
-    if (adjucentSpots) {
-      adjucentSpots.forEach( (adjucentSpot) => adjucentSpot.revealSpot() );
-    }
+    spot.revealSpot();
 
     if (this.game.hasWon() || this.game.hasLost()) {
       this.$scope.$broadcast('game-over');

@@ -1,12 +1,12 @@
-<span ng-if="isRevealed">
-  <img ng-src="{{images[type.type]}}" />
+<span ng-if="spot.isRevealed">
+  <img ng-src="{{spot.images[spot.content.type]}}" />
 </span>
 
-<span ng-if="!isRevealed && !isFlagged">
-  <img ng-src="{{images['covered']}}" />
+<span ng-if="!spot.isRevealed && !spot.isFlagged">
+  <img ng-src="{{spot.images['covered']}}" />
 </span>
 
-<span ng-if="!isRevealed && isFlagged">
-  <img ng-src="{{images['flagged']}}" />
+<span ng-if="!spot.isRevealed && spot.isFlagged">
+  <img ng-src="{{spot.images['flagged']}}" />
 </span>
 

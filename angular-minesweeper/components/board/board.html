@@ -5,12 +5,12 @@
 </header>
 
 <table class="minefield">
-  <tr ng-repeat="row in Board.game.minefield.rows">
+  <tr ng-repeat="row in Board.game.minefield.rows track by $index">
     <td ng-repeat="spot in row.spots track by $index"
         ng-click="Board.revealSpot(spot)"
         ms-right-click="Board.flagSpot(spot)">
 
-      <spot images="spot.images" type="spot.content" is-revealed="spot.isRevealed" is-flagged="spot.isFlagged"></spot>
+      <spot spot="spot"></spot>
     </td>
   </tr>
 </table>

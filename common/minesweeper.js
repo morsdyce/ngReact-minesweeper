@@ -59,11 +59,12 @@ export default class MineSweeper {
       spot.getBelow(),
       spot.getBelowRight(),
       spot.getBelowLeft()
-    ].filter((checkingSpot) => checkingSpot)
+    ].filter((adjacentSpot) => adjacentSpot)
       .map(({ row, column }) => this._getSpot(row, column))
-      .filter((checkingSpot) => !checkingSpot.isRevealed)
-      .filter((checkingSpot) => !checkingSpot.isFlagged)
-      .filter((checkingSpot) => checkingSpot.content !== Spot.TYPES.MINE);
+      .filter((adjacentSpot) => !adjacentSpot.isRevealed)
+      .filter((adjacentSpot) => !adjacentSpot.isFlagged)
+      .filter((adjacentSpot) => adjacentSpot.content !== Spot.TYPES.MINE)
+      .forEach( (adjacentSpot) => adjacentSpot.revealSpot());
   }
 
   _calculateNumber(row, column) {

@@ -13,39 +13,11 @@ const CHANGE_EVENT = 'CHANGE';
 function revealSpot({ row, column }) {
   let spot = getSpot(row, column);
   spot.revealSpot();
-
-  if (spot.content === Spot.TYPES.EMPTY) {
-    checkAdjacentSpots(spot);
-  }
 }
 
 function flagSpot({ row, column }) {
   let spot = getSpot(row, column);
   spot.flagSpot();
-}
-
-function checkAdjacentSpots(spot) {
-  return [
-    spot.getAbove(),
-    spot.getAboveRight(),
-    spot.getAboveLeft(),
-    spot.getRight(),
-    spot.getLeft(),
-    spot.getBelow(),
-    spot.getBelowRight(),
-    spot.getBelowLeft()
-  ].filter((checkingSpot) => checkingSpot)
-    .map(({ row, column }) => getSpot(row, column))
-    .filter((checkingSpot) => !checkingSpot.isRevealed)
-    .filter((checkingSpot) => !checkingSpot.isFlagged)
-    .filter((checkingSpot) => checkingSpot.content !== Spot.TYPES.MINE)
-    .forEach((checkingSpot) => {
-      revealSpot(checkingSpot.position);
-      GameStore.emitChange({
-        type: ActionTypes.REVEAL_SPOT,
-        position: checkingSpot.position
-      });
-    });
 }
 
 function getSpot(row, column) {
