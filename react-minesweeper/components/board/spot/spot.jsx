@@ -7,8 +7,7 @@ export default React.createClass({
 
   propTypes() {
     return {
-      spot: React.PropTypes.any.isRequired,
-      images: React.PropTypes.any.isRequired
+      spot: React.PropTypes.any.isRequired
     };
   },
 
@@ -20,22 +19,12 @@ export default React.createClass({
     };
   },
 
-  update(type) {
-    let state = {};
-    switch (type) {
-      case GameConstants.REVEAL_SPOT:
-        state.isRevealed = true;
-        break;
-      case GameConstants.FLAG_SPOT:
-        state.isFlagged = true;
-        break;
-      case GameConstants.NEW_GAME:
-        state.isRevealed = false;
-        state.isFlagged = false;
-        break;
-    }
-
-    this.setState(state);
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      isRevealed: nextProps.spot.isRevealed,
+      isFlagged: nextProps.spot.isFlagged,
+      type: nextProps.spot.content.type
+    });
   },
 
   revealSpot() {
@@ -52,15 +41,15 @@ export default React.createClass({
     let image;
 
     if (this.state.isRevealed) {
-      image = this.props.images[this.state.type];
+      image = this.props.spot.images[this.state.type];
     }
 
     if (!this.state.isRevealed && !this.state.isFlagged) {
-      image = this.props.images['covered'];
+      image = this.props.spot.images['covered'];
     }
 
     if (!this.state.isRevealed && this.state.isFlagged) {
-      image = this.props.images['flagged'];
+      image = this.props.spot.images['flagged'];
     }
 
     return (

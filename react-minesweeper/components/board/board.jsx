@@ -1,5 +1,4 @@
 import React from 'react';
-import GameStore from 'react-minesweeper/stores/game-store';
 import GameActions from 'react-minesweeper/actions/game-actions';
 import GameConstants from 'react-minesweeper/constants/game.constants';
 import Spot from 'react-minesweeper/components/board/spot/spot.jsx';
@@ -10,35 +9,10 @@ import _ from 'lodash';
 
 export default React.createClass({
 
-  getInitialState() {
+  propTypes() {
     return {
-      minefield: GameStore.getMinefield()
-    }
-  },
-
-  componentDidMount: function () {
-    GameStore.addChangeListener(this._onChange);
-  },
-
-  componentWillUnmount: function () {
-    GameStore.removeChangeListener(this._onChange);
-  },
-
-  _onChange({ type, position }) {
-
-    if (type === GameConstants.REVEAL_SPOT || type === GameConstants.FLAG_SPOT) {
-
-      // get a reference to a specific spot and mark it for update
-      this.refs[`spot${position.row}-${position.column}`].update(type);
-
-      if (GameStore.hasWon()) {
-        alert('You Win!');
-      } else if (GameStore.hasLost()) {
-        alert('You Lost!');
-      }
-    } else if (type === GameConstants.NEW_GAME) {
-      _.each(this.refs, (ref) => ref.update(type));
-    }
+      minefield: React.PropTypes.object.isRequired
+    };
   },
 
   renderCells(row) {
@@ -47,14 +21,14 @@ export default React.createClass({
 
       return (
         <td key={spot.position.column}>
-          <Spot spot={ spot } images={ spot.images } ref={ ref }/>
+          <Spot spot={ spot }/>
         </td>
       );
     });
   },
 
   renderRows() {
-    return this.state.minefield.rows.map((row, index) => {
+    return this.props.minefield.rows.map((row, index) => {
       return (
         <tr key={ index }>
           { this.renderCells(row) }
