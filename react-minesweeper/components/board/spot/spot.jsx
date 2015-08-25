@@ -11,14 +11,6 @@ export default React.createClass({
     };
   },
 
-  getInitialState() {
-    return {
-      isRevealed: this.props.spot.isRevealed,
-      isFlagged: this.props.spot.isFlagged,
-      type: this.props.spot.content.type
-    };
-  },
-
   componentWillReceiveProps(nextProps) {
     this.setState({
       isRevealed: nextProps.spot.isRevealed,
@@ -40,15 +32,15 @@ export default React.createClass({
   render() {
     let image;
 
-    if (this.state.isRevealed) {
+    if (this.props.spot.isRevealed) {
       image = this.props.spot.images[this.state.type];
     }
 
-    if (!this.state.isRevealed && !this.state.isFlagged) {
+    if (!this.props.spot.isRevealed && !this.props.spot.isFlagged) {
       image = this.props.spot.images['covered'];
     }
 
-    if (!this.state.isRevealed && this.state.isFlagged) {
+    if (!this.props.spot.isRevealed && this.props.spot.isFlagged) {
       image = this.props.spot.images['flagged'];
     }
 
