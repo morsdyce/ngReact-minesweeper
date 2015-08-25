@@ -1,7 +1,7 @@
 import React from 'react';
 import GameActions from 'react-minesweeper/actions/game-actions';
 import GameConstants from 'react-minesweeper/constants/game.constants';
-import Spot from 'react-minesweeper/components/board/spot/spot.jsx';
+import Cell from 'react-minesweeper/components/board/cell/cell.jsx';
 import Timer from 'react-minesweeper/components/board/timer/timer.jsx';
 import BombsCount from 'react-minesweeper/components/board/bombs-count/bombs-count.jsx';
 import NewGameButton from 'react-minesweeper/components/board/new-game-button/new-game-button.jsx';
@@ -19,7 +19,7 @@ export default React.createClass({
     return row.spots.map((spot) => {
       return (
         <td key={spot.position.column}>
-          <Spot spot={ spot }/>
+          <Cell spot={ spot }/>
         </td>
       );
     });

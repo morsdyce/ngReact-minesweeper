@@ -39,4 +39,4 @@ export default {
     type: 'NUMBER8',
     image: 'number-8.png'
   }
-}
+};

@@ -4,6 +4,7 @@ import SPOT_TYPES from 'common/spot/spot-types.constants';
 import _ from 'lodash';
 
 export default class Spot {
+
   constructor(game, row, column) {
     this.game       = game;
     this.isRevealed = false;
@@ -13,23 +14,10 @@ export default class Spot {
       row,
       column
     };
-    this.images = {
-      covered: require('common/assets/images/covered.png'),
-      flagged: require('common/assets/images/flag-mine.png')
-    };
-
-    this.loadImages();
   }
 
   static get TYPES() {
     return SPOT_TYPES;
-  }
-
-  loadImages() {
-    _.each(Spot.TYPES, (spotType) => {
-      let image = Spot.TYPES[spotType.type].image;
-      this.images[spotType.type] = require(`common/assets/images/${image}`);
-    });
   }
 
   revealSpot() {

@@ -4,6 +4,7 @@ import Spot from 'common/spot/spot';
 import _ from 'lodash';
 
 export default class MineSweeper {
+
   constructor(size = 9) {
     this.size      = size;
     this.isBlown   = false;
@@ -36,8 +37,8 @@ export default class MineSweeper {
   }
 
   _placeRandomMine() {
-    let row    = Math.round(Math.random() * (this.size - 1) );
-    let column = Math.round(Math.random() * (this.size - 1) );
+    let row    = Math.round(Math.random() * (this.size - 1));
+    let column = Math.round(Math.random() * (this.size - 1));
 
     let spot     = this._getSpot(row, column);
     spot.content = Spot.TYPES.MINE;
@@ -64,7 +65,7 @@ export default class MineSweeper {
       .filter((adjacentSpot) => !adjacentSpot.isRevealed)
       .filter((adjacentSpot) => !adjacentSpot.isFlagged)
       .filter((adjacentSpot) => adjacentSpot.content !== Spot.TYPES.MINE)
-      .forEach( (adjacentSpot) => adjacentSpot.revealSpot());
+      .forEach((adjacentSpot) => adjacentSpot.revealSpot());
   }
 
   _calculateNumber(row, column) {
