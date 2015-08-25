@@ -1,7 +1,7 @@
 {
   "name": "ng-react-minesweeper",
   "version": "1.0.0",
-  "description": "Code for pragmatic introduction to angular devs",
+  "description": "Pragmatic introduction to ReactJS",
   "main": "src/app.js",
   "scripts": {
     "prestart": "npm install",
