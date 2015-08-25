@@ -5,6 +5,8 @@ import Cell from 'react-minesweeper/components/board/cell/cell.jsx';
 import Timer from 'react-minesweeper/components/board/timer/timer.jsx';
 import BombsCount from 'react-minesweeper/components/board/bombs-count/bombs-count.jsx';
 import NewGameButton from 'react-minesweeper/components/board/new-game-button/new-game-button.jsx';
+import Header from 'react-minesweeper/components/board/header/header.jsx';
+import TitleBar from 'react-minesweeper/components/board/title-bar/title-bar.jsx';
 import _ from 'lodash';
 
 export default React.createClass({
@@ -37,18 +39,23 @@ export default React.createClass({
 
   render() {
     return (
-      <div>
-        <header>
-          <Timer />
-          <NewGameButton newGameFn={ GameActions.startNewGame }/>
-          <BombsCount />
-        </header>
+      <div className="window">
+        <TitleBar />
 
-        <table className="minefield">
-          { this.renderRows() }
-        </table>
+        <div className="window-inner">
+          <Header>
+            <BombsCount />
+            <NewGameButton newGameFn={ GameActions.startNewGame }/>
+            <Timer />
+          </Header>
+
+          <div className="minefield-wrapper">
+            <table className="minefield">
+              { this.renderRows() }
+            </table>
+          </div>
+        </div>
       </div>
-    )
+    );
   }
-
 });

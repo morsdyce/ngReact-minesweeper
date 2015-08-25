@@ -25,9 +25,11 @@ export default React.createClass({
 
   render() {
     return (
-      <span className="bombsCount">
-        Bombs: { this.state.remainingBombs }
+      <div className="bomb-count number-window">
+      <span>
+        { this.state.remainingBombs }
       </span>
+      </div>
     )
   }
 });

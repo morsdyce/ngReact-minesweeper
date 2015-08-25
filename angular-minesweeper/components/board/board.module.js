@@ -4,12 +4,14 @@ import Cell from 'angular-minesweeper/components/board/cell/cell';
 import Timer from 'angular-minesweeper/components/board/timer/timer';
 import Bombs from 'angular-minesweeper/components/board/bombs/bombs';
 import NewGameButton from 'angular-minesweeper/components/board/new-game-button/new-game-button';
+import TitleBar from 'angular-minesweeper/components/board/title-bar/title-bar';
 
 export default angular.module('ngReact.board', [])
   .directive('board', Board)
   .directive('cell', Cell)
   .directive('timer', Timer)
   .directive('bombs', Bombs)
-  .directive('newGameButton', NewGameButton);
+  .directive('newGameButton', NewGameButton)
+  .directive('titleBar', TitleBar);
 
 

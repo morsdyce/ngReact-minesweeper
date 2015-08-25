@@ -44,10 +44,12 @@ export default React.createClass({
 
   render() {
     return (
-      <span className="timer">
-        Time: { this.state.time }
+      <div className="timer number-window">
+      <span>
+        { this.state.time }
       </span>
-    )
+      </div>
+    );
   }
 
 });

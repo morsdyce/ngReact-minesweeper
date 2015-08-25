@@ -1,3 +1,7 @@
+body {
+  font-family: "Helvetica Neue", sans-serif;
+}
+
 .minefield {
   line-height:0;
   border-spacing:0;

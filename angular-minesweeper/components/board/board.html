@@ -1,16 +1,23 @@
-<header>
-  <timer time="Board.game.getTime"></timer>
-  <new-game-button new-game="Board.newGame"></new-game-button>
-  <bombs amount="Board.remainingBombs()"></bombs>
-</header>
+<div class="window">
+  <title-bar></title-bar>
+  <div class="window-inner">
+    <div class="header">
+      <bombs amount="Board.remainingBombs()"></bombs>
+      <new-game-button new-game="Board.newGame"></new-game-button>
+      <timer time="Board.game.getTime"></timer>
+    </div>
 
-<table class="minefield">
-  <tr ng-repeat="row in Board.game.minefield.rows track by $index">
-    <td ng-repeat="spot in row.spots track by $index"
-        ng-click="Board.revealSpot(spot)"
-        ms-right-click="Board.flagSpot(spot)">
+    <div class="minefield-wrapper">
+      <table class="minefield">
+        <tr ng-repeat="row in Board.game.minefield.rows track by $index">
+          <td ng-repeat="spot in row.spots track by $index"
+              ng-click="Board.revealSpot(spot)"
+              ms-right-click="Board.flagSpot(spot)">
 
-      <cell spot="spot"></cell>
-    </td>
-  </tr>
-</table>
+            <cell spot="spot"></cell>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

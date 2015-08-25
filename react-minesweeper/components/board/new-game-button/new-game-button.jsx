@@ -18,7 +18,11 @@ export default React.createClass({
   },
 
   render() {
-    return <img src={this.props.image} onClick={ this.props.newGameFn } />
+    return (
+      <div className="new-game-button">
+        <img src={this.props.image} onClick={ this.props.newGameFn } />
+      </div>
+    );
   }
 
 });
