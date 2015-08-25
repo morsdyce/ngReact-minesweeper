@@ -1,7 +1,3 @@
-body {
-  font-family: "Helvetica Neue", sans-serif;
-}
-
 .minefield {
   line-height:0;
   border-spacing:0;
@@ -9,4 +5,94 @@ body {
 
 .minefield td {
   padding:0
+}
+
+.window {
+  border: 1px solid black;
+  clear: both;
+  margin-top: 35px;
+  background-color: silver;
+  width: 263px;
+}
+
+.title-bar {
+  background-color: #00008b;
+  color: #fff;
+  padding: 2px;
+  overflow: auto;
+}
+
+.app-name {
+  width: 132px;
+  float: left;
+}
+
+.app-name img {
+  height: 16px;
+  position: relative;
+  top: 2px;
+}
+
+.window-buttons img {
+  height: 16px;
+  float: right;
+  position: relative;
+  top: 1px;
+}
+
+.window-inner {
+  margin: 20px 4px 3px;
+  border-top: 5px solid white;
+  border-left: 5px solid white;
+  border-right: 4px solid #808080;
+  border-bottom: 5px solid #808080;
+  padding: 10px;
+}
+
+.header {
+  border: 4px solid #797979;
+  border-right-color: white;
+  border-bottom-color: white;
+  overflow: auto;
+  padding: 3px 0 0;
+}
+
+.number-window {
+  background-color: black;
+  color: red;
+  width: 43px;
+  height: 33px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.number-window span {
+  position: relative;
+  top: 3px;
+}
+
+.bomb-count {
+  float: left;
+}
+
+.timer {
+  float: right;
+}
+
+.new-game-button {
+  float: left;
+  margin: 0 0 0 48px;
+}
+
+.new-game-button img {
+  height: 30px;
+  margin: 0;
+}
+
+.minefield-wrapper {
+  margin-top: 10px;
+  height: 217px;
+  border: 5px solid #7c7c7c;
+  border-right-color: white;
+  border-bottom-color: white;
 }

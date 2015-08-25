@@ -1,7 +1,7 @@
 {
-  "name": "ng-react-angular",
+  "name": "ng-react-minesweeper",
   "version": "1.0.0",
-  "description": "Code for Introduction to react for angular devs",
+  "description": "Code for pragmatic introduction to angular devs",
   "main": "src/app.js",
   "scripts": {
     "prestart": "npm install",
@@ -10,19 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/morsdyce/ngReact-minsweeper"
+    "url": "https://github.com/morsdyce/ngReact-minesweeper"
   },
-  "keywords": [
-    "angularjs",
-    "webpack",
-    "es6",
-    "javascript",
-    "bootstrap",
-    "less"
-  ],
   "author": "Maayan Glikser <maayan@glikm.com>",
   "license": "MIT",
-  "homepage": "https://github.com/morsdyce/ngReact-minsweeper",
+  "homepage": "https://github.com/morsdyce/ngReact-minesweeper",
   "devDependencies": {
     "babel-core": "5.6.4",
     "babel-loader": "5.1.4",
@@ -32,7 +24,6 @@
     "node-libs-browser": "0.5.2",
     "node-sass": "3.2.0",
     "raw-loader": "0.5.1",
-    "sass-loader": "2.0.1",
     "style-loader": "0.12.3",
     "url-loader": "0.5.6",
     "webpack": "1.9.11",
@@ -40,10 +31,8 @@
   },
   "dependencies": {
     "angular": "1.4.1",
-    "bootstrap": "3.3.5",
     "eventemitter2": "^0.4.14",
     "flux": "^2.1.1",
-    "grunt-cli": "0.1.13",
     "keymirror": "^0.1.1",
     "lodash": "^3.10.1",
     "object-assign": "^4.0.1",
