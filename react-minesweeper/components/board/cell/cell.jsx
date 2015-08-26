@@ -12,14 +12,6 @@ export default React.createClass({
     };
   },
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      isRevealed: nextProps.spot.isRevealed,
-      isFlagged: nextProps.spot.isFlagged,
-      type: nextProps.spot.content.type
-    });
-  },
-
   getInitialState() {
      let images = {
       covered: require('common/assets/images/covered.png'),
