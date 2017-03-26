@@ -4,16 +4,18 @@ import GameConstants from 'react-minesweeper/constants/game.constants';
 import GameStore from 'react-minesweeper/stores/game-store';
 import Spot from 'common/spot/spot';
 
-export default React.createClass({
+export class Cell extends React.Component {
+  constructor() {
+    super();
 
-  propTypes() {
-    return {
-      spot: React.PropTypes.any.isRequired
-    };
-  },
+    this.state = this.getInitialState();
+
+    this.revealSpot = this.revealSpot.bind(this);
+    this.flagSpot = this.flagSpot.bind(this);
+  }
 
   getInitialState() {
-     let images = {
+    let images = {
       covered: require('common/assets/images/covered.png'),
       flagged: require('common/assets/images/flag-mine.png')
     };
@@ -26,17 +28,17 @@ export default React.createClass({
     return {
       images
     };
-  },
+  }
 
   revealSpot() {
     GameActions.revealSpot(this.props.spot.position);
-  },
+  }
 
   flagSpot(e) {
     e.preventDefault();
 
     GameActions.flagSpot(this.props.spot.position);
-  },
+  }
 
   render() {
     let image;
@@ -54,10 +56,16 @@ export default React.createClass({
     }
 
     return (
-     <img src={ image }
-          onClick={ this.revealSpot }
-          onContextMenu={ this.flagSpot } />
+      <img src={ image }
+           onClick={ this.revealSpot }
+           onContextMenu={ this.flagSpot } />
     );
   }
+}
 
-});
+Cell.propTypes = {
+  spot: React.PropTypes.any.isRequired
+};
+
+export default Cell;
+

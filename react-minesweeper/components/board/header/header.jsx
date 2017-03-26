@@ -1,15 +1,9 @@
 import React from 'react';
 
-export default React.createClass({
+export const Header = ({ children }) => (
+  <div className="header">
+    {children}
+  </div>
+);
 
-  displayName: 'Header',
-
-  render() {
-    return (
-      <div className="header">
-        {this.props.children}
-      </div>
-    );
-  }
-
-});
+export default Header;

@@ -9,13 +9,7 @@ import Header from 'react-minesweeper/components/board/header/header.jsx';
 import TitleBar from 'react-minesweeper/components/board/title-bar/title-bar.jsx';
 import _ from 'lodash';
 
-export default React.createClass({
-
-  propTypes() {
-    return {
-      minefield: React.PropTypes.object.isRequired
-    };
-  },
+class Board extends React.Component {
 
   renderCells(row) {
     return row.spots.map((spot) => {
@@ -25,7 +19,7 @@ export default React.createClass({
         </td>
       );
     });
-  },
+  }
 
   renderRows() {
     return this.props.minefield.rows.map((row, index) => {
@@ -35,7 +29,7 @@ export default React.createClass({
         </tr>
       );
     });
-  },
+  }
 
   render() {
     return (
@@ -51,11 +45,19 @@ export default React.createClass({
 
           <div className="minefield-wrapper">
             <table className="minefield">
+              <tbody>
               { this.renderRows() }
+              </tbody>
             </table>
           </div>
         </div>
       </div>
     );
   }
-});
+}
+
+Board.propTypes = {
+  minefield: React.PropTypes.object.isRequired
+};
+
+export default Board;

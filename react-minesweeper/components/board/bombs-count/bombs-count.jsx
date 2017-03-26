@@ -1,35 +1,38 @@
 import React from 'react';
 import GameStore from 'react-minesweeper/stores/game-store';
 
-export default React.createClass({
+export class BombsCount extends React.Component {
+  constructor() {
+    super();
 
-  getInitialState() {
-    return {
+    this.state = {
       remainingBombs: GameStore.getRemainingBombs()
-    }
-  },
+    };
 
-  componentDidMount: function () {
+    this._onChange = this._onChange.bind(this);
+  }
+
+  componentDidMount() {
     GameStore.addChangeListener(this._onChange);
-  },
+  }
 
-  componentWillUnmount: function () {
+  componentWillUnmount() {
     GameStore.removeChangeListener(this._onChange);
-  },
+  }
 
   _onChange() {
     this.setState({
       remainingBombs: GameStore.getRemainingBombs()
     });
-  },
+  }
 
   render() {
     return (
       <div className="bomb-count number-window">
-      <span>
-        { this.state.remainingBombs }
-      </span>
+        <span>{ this.state.remainingBombs }</span>
       </div>
     )
   }
-});
+}
+
+export default BombsCount;

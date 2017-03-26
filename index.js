@@ -2,6 +2,7 @@ import 'common/assets/stylesheets/global.css';
 
 import angular from 'angular';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import AngularMinesweeper from 'angular-minesweeper';
 import ReactMinesweeper from 'react-minesweeper/app.jsx';
@@ -13,4 +14,4 @@ let reactContainer   = document.getElementById('react');
 angular.bootstrap(angularContainer, [AngularMinesweeper.name]);
 
 // render react into #react dom node
-React.render(<ReactMinesweeper />, reactContainer);
+ReactDOM.render(<ReactMinesweeper />, reactContainer);

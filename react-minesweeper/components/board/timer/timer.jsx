@@ -1,28 +1,34 @@
 import React from 'react';
 import GameStore from 'react-minesweeper/stores/game-store';
 
-export default React.createClass({
+class Timer extends React.Component {
+  constructor() {
+    super();
 
-  getInitialState() {
-    return {
+    this.state = {
       time: 0
     };
-  },
+
+    this._onChange = this._onChange.bind(this);
+    this._startTimer = this._startTimer.bind(this);
+    this._stopTimer = this._stopTimer.bind(this);
+    this._resetTimer = this._resetTimer.bind(this);
+  }
 
   componentDidMount() {
     this._startTimer();
     GameStore.addChangeListener(this._onChange);
-  },
+  }
 
-  componentWillUnmount: function () {
+  componentWillUnmount() {
     GameStore.removeChangeListener(this._onChange);
-  },
+  }
 
   _onChange() {
     if (GameStore.hasWon() || GameStore.hasLost()) {
       this._stopTimer();
     }
-  },
+  }
 
   _startTimer() {
     // we save the interval id on the component instance and not the state
@@ -30,17 +36,17 @@ export default React.createClass({
     this.intervalId = setInterval(() => this.setState({
       time: this.state.time + 1
     }), 1000);
-  },
+  }
 
   _stopTimer() {
     clearInterval(this.intervalId);
-  },
+  }
 
   _resetTimer() {
     this.setState({
       time: 0
     });
-  },
+  }
 
   render() {
     return (
@@ -51,5 +57,6 @@ export default React.createClass({
       </div>
     );
   }
+}
 
-});
+export default Timer;

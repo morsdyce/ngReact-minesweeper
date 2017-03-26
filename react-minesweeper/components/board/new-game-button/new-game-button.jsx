@@ -1,28 +1,16 @@
 import React from 'react';
 
-export default React.createClass({
+const defaultImage = require('common/assets/images/newgame.jpg');
 
-  displayName: 'NewGameButton',
+export const NewGameButton = ({ image = defaultImage, newGameFn }) => (
+  <div className="new-game-button">
+    <img src={image} onClick={ newGameFn } />
+  </div>
+);
 
-  propTypes() {
-    return {
-      image: React.PropTypes.string,
-      newGameFn: React.PropsTypes.func.isRequired
-    }
-  },
+NewGameButton.propTypes = {
+  image: React.PropTypes.string,
+  newGameFn: React.PropTypes.func
+};
 
-  getDefaultProps() {
-    return {
-      image: require('common/assets/images/newgame.jpg')
-    }
-  },
-
-  render() {
-    return (
-      <div className="new-game-button">
-        <img src={this.props.image} onClick={ this.props.newGameFn } />
-      </div>
-    );
-  }
-
-});
+export default NewGameButton;
