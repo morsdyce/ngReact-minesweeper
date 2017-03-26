@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import AngularMinesweeper from 'angular-minesweeper';
-import ReactMinesweeper from 'react-minesweeper/app.jsx';
+import ReactMinesweeper from 'react-minesweeper/app';
 
 let angularContainer = document.getElementById('angular');
 let reactContainer   = document.getElementById('react');

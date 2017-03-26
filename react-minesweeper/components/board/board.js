@@ -1,12 +1,12 @@
 import React from 'react';
 import GameActions from 'react-minesweeper/actions/game-actions';
 import GameConstants from 'react-minesweeper/constants/game.constants';
-import Cell from 'react-minesweeper/components/board/cell/cell.jsx';
-import Timer from 'react-minesweeper/components/board/timer/timer.jsx';
-import BombsCount from 'react-minesweeper/components/board/bombs-count/bombs-count.jsx';
-import NewGameButton from 'react-minesweeper/components/board/new-game-button/new-game-button.jsx';
-import Header from 'react-minesweeper/components/board/header/header.jsx';
-import TitleBar from 'react-minesweeper/components/board/title-bar/title-bar.jsx';
+import Cell from 'react-minesweeper/components/board/cell/cell';
+import Timer from 'react-minesweeper/components/board/timer/timer';
+import BombsCount from 'react-minesweeper/components/board/bombs-count/bombs-count';
+import NewGameButton from 'react-minesweeper/components/board/new-game-button/new-game-button';
+import Header from 'react-minesweeper/components/board/header/header';
+import TitleBar from 'react-minesweeper/components/board/title-bar/title-bar';
 import _ from 'lodash';
 
 class Board extends React.Component {

@@ -1,22 +1,25 @@
 import React from 'react';
 import GameStore from 'react-minesweeper/stores/game-store';
-import Board from 'react-minesweeper/components/board/board.jsx';
+import Board from 'react-minesweeper/components/board/board';
 
-export default React.createClass({
+export class App extends React.Component {
+  constructor() {
+    super();
 
-  getInitialState() {
-    return {
+    this.state = {
       minefield: GameStore.getMinefield()
-    }
-  },
+    };
 
-  componentDidMount: function () {
+    this._onChange = this._onChange.bind(this);
+  }
+
+  componentDidMount() {
     GameStore.addChangeListener(this._onChange);
-  },
+  }
 
-  componentWillUnmount: function () {
+  componentWillUnmount() {
     GameStore.removeChangeListener(this._onChange);
-  },
+  }
 
   _onChange() {
     this.setState({
@@ -28,12 +31,13 @@ export default React.createClass({
     } else if (GameStore.hasLost()) {
       alert('You Lost!');
     }
-  },
+  }
 
   render() {
     return (
       <Board minefield={ this.state.minefield }/>
     );
   }
+}
 
-});
+export default App;
