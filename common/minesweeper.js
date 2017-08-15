@@ -2,6 +2,7 @@
 
 import Spot from 'common/spot/spot';
 import _ from 'lodash';
+import uuid from 'uuid';
 
 export default class MineSweeper {
 
@@ -9,7 +10,8 @@ export default class MineSweeper {
     this.size      = size;
     this.isBlown   = false;
     this.minefield = {
-      rows: []
+      rows: [],
+      id: uuid.v4()
     };
 
     this._createRows();

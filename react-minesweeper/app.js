@@ -35,7 +35,7 @@ export class App extends React.Component {
 
   render() {
     return (
-      <Board minefield={ this.state.minefield }/>
+      <Board key={ this.state.minefield.id } minefield={ this.state.minefield }/>
     );
   }
 }
